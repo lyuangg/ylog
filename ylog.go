@@ -89,6 +89,9 @@ func SetFormatter(f Formatter) {
 func SetLevel(l Level) {
 	defaultLog.SetLevel(l)
 }
+func With(f Fields) Logger {
+	return defaultLog.With(f)
+}
 
 func (l *Log) Info(msg string) {
 	l.Write(msg, InfoLevel)

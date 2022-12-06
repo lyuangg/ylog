@@ -116,10 +116,9 @@ func TestLevelWrite(t *testing.T) {
 
 func TestWith(t *testing.T) {
 	o := &TestOuter{}
-	log := New()
-	log.SetOuter(o)
+	SetOuter(o)
 
-	log.With(Fields{"testkey1": "testval1", "testkey2": "testval2"}).With(Fields{"testkey3": "testval3"}).Info("hello world")
+	With(Fields{"testkey1": "testval1", "testkey2": "testval2"}).With(Fields{"testkey3": "testval3"}).Info("hello world")
 
 	assert.Contains(t, o.Msg, "testkey1")
 	assert.Contains(t, o.Msg, "testval2")
