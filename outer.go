@@ -24,6 +24,7 @@ type (
 
 	// 空输出，测试时使用
 	EmptyOut struct {
+		StdOut
 	}
 
 	// 文件输出
@@ -42,7 +43,9 @@ func NewStdout() Outer {
 }
 
 func NewEmptyOut() Outer {
-	return &EmptyOut{}
+	e := &EmptyOut{}
+	e.o = io.Discard
+	return e
 }
 
 func NewRotateFile(path string, nameformat string, num int) Outer {
@@ -51,10 +54,6 @@ func NewRotateFile(path string, nameformat string, num int) Outer {
 		nameFormat: nameformat,
 		num:        num,
 	}
-}
-
-func (e *EmptyOut) Write(r Record) error {
-	return nil
 }
 
 func (s *StdOut) Write(r Record) error {

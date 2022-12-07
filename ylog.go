@@ -34,7 +34,7 @@ type (
 		o      Outer
 		level  Level
 		fields Fields // 公共字段
-		mu     sync.Mutex
+		mu     sync.RWMutex
 	}
 )
 
@@ -112,8 +112,8 @@ func (l *Log) SetFormatter(f Formatter) {
 	l.f = f
 }
 func (l *Log) GetFormatter() Formatter {
-	l.mu.Lock()
-	defer l.mu.Unlock()
+	l.mu.RLock()
+	defer l.mu.RUnlock()
 	return l.f
 }
 
@@ -123,8 +123,8 @@ func (l *Log) SetOuter(o Outer) {
 	l.o = o
 }
 func (l *Log) GetOuter() Outer {
-	l.mu.Lock()
-	defer l.mu.Unlock()
+	l.mu.RLock()
+	defer l.mu.RUnlock()
 	return l.o
 }
 
