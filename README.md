@@ -1,6 +1,12 @@
 # ylog
 
-一个简单易用的 go 日志库。
+![GitHub](https://img.shields.io/github/license/lyuangg/ylog?style=flat-square)
+![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/lyuangg/ylog?style=flat-square&logo=go)
+![test coverage](https://img.shields.io/badge/test-100%25-brightgreen?style=flat-square)
+![GitHub Repo stars](https://img.shields.io/github/stars/lyuangg/ylog?style=flat-square)
+
+
+一个简单易用的 go 日志库。 [设计](http://yuancoder.com/ylog/)
 
 ## Features
 
